@@ -1,21 +1,37 @@
-public class WordCounter {
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.StringTokenizer;
 
-    String inputString;
+public class WordCounter {
+    StringTokenizer str;
+    HashMap<String, Integer> hm = new HashMap<>();
     public WordCounter(String inputString) {
-        this.inputString = inputString;
+        str = new StringTokenizer(inputString);
     }
 
     public void countWords() {
-        int wordCounter = 0;
-        for(char ch : inputString.toCharArray()){
-            if(ch == ' '){
-                wordCounter++;
+        String eachWord = "";
+        int value = 0;
+
+        while(str.hasMoreTokens()){
+            eachWord = str.nextToken().toLowerCase();
+            if(!hm.containsKey(eachWord)){
+                value++;
+                hm.put(eachWord, value);
             }
+            else{
+                value = hm.get(eachWord) + 1;
+                hm.replace(eachWord, value);
+            }
+            value = 0;
         }
     }
 
-    public int getWordCount() {
-
-        return 0;
+    public String getWordCount() {
+        String output = "";
+        for(String key : hm.keySet()){
+            output += key + " " + hm.get(key) + "\n";
+        }
+        return output;
     }
 }
