@@ -2,7 +2,8 @@ public class Main {
     public static void main(String[] args) {
 //        ex1();
 //        ex2();
-        ex3();
+//        ex3();
+        ex4();
     }
     static void ex1(){
         var p = new Person("Tom", "Thumb", 11, "123-45-1234");
@@ -37,5 +38,11 @@ public class Main {
         personDeDuper.addPerson(p3);
 
         System.out.println(personDeDuper.getUniquePeople());
+    }
+
+    static void ex4(){
+        var wordReverser = new WordReverser("This is a test");
+        wordReverser.reverseWords();
+        System.out.println(wordReverser.getReversedWords());
     }
 }
