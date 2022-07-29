@@ -12,4 +12,8 @@ public class Car {
         this.color = color;
         this.miles = miles;
     }
+
+    public int getPrice() {
+        return price;
+    }
 }

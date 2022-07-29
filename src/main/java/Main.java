@@ -105,12 +105,22 @@ public class Main {
             else
                 return -1;
         });
-
+        System.out.println("Sorted list according to miles per gallon.");
         for (Car car : cars) {
 
-            // Print the sorted ArrayList
             System.out.println(car.model + " " + car.make + " " + car.price + " " + car.color + " " + car.miles + "\n");
         }
 
+        Comparator<Car> ageComparator = new Comparator<Car>() {
+            public int compare(Car c1, Car c2) {
+                return c1.getPrice() - c2.getPrice();
+            }
+        };
+        cars.sort(ageComparator);
+        System.out.println("Sorted list according to price.");
+        for (Car car : cars) {
+
+           System.out.println(car.model + " " + car.make + " " + car.price + " " + car.color + " " + car.miles + "\n");
+        }
     }
 }
