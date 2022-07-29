@@ -25,4 +25,9 @@ public class WordReverser {
         }
         return output;
     }
+
+    public int getWordCount() {
+        StringTokenizer st = new StringTokenizer(input);
+        return st.countTokens();
+    }
 }

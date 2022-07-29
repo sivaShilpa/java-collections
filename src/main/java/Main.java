@@ -44,5 +44,6 @@ public class Main {
         var wordReverser = new WordReverser("This is a test");
         wordReverser.reverseWords();
         System.out.println(wordReverser.getReversedWords());
+        System.out.println(wordReverser.getWordCount());
     }
 }
