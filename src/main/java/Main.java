@@ -1,9 +1,14 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.concurrent.TimeUnit;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 //        ex1();
 //        ex2();
 //        ex3();
-        ex4();
+//        ex4();
+        ex5();
     }
     static void ex1(){
         var p = new Person("Tom", "Thumb", 11, "123-45-1234");
@@ -45,5 +50,36 @@ public class Main {
         wordReverser.reverseWords();
         System.out.println(wordReverser.getReversedWords());
         System.out.println(wordReverser.getWordCount());
+    }
+
+    static void ex5() throws InterruptedException {
+        var p1 = new Person("Alice", 11);
+        var p2 = new Person("Bob", 22);
+        var p3 = new Person("Charlie", 33);
+        var p4 = new Person("Dave", 44);
+        var p5 = new Person("Egar", 55);
+        var p6 = new Person("Fred", 66);
+
+// TODO: Create queue of people here...
+        Queue<Person> que = new LinkedList<>();
+        que.add(p1);
+        que.add(p2);
+        que.add(p3);
+        que.add(p4);
+        que.add(p5);
+        que.add(p6);
+
+        while (true) {
+            System.out.println(que.peek().fName + " " + que.peek().age+ "\n");
+            que.remove();
+            
+            if(que.isEmpty()){
+                break;
+            }
+
+            TimeUnit.SECONDS.sleep(2);
+        }
+
+        System.out.println("Finished");
     }
 }

@@ -10,6 +10,11 @@ public class Person {
         this.pNumber = pNumber;
     }
 
+    public Person(String name, int age) {
+        this.fName = name;
+        this.age = age;
+    }
+
     public String getpNumber() {
         return pNumber;
     }
