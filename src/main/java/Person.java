@@ -10,6 +10,10 @@ public class Person {
         this.pNumber = pNumber;
     }
 
+    public String getpNumber() {
+        return pNumber;
+    }
+
     @Override
     public boolean equals(Object obj) {
         Person person = (Person) obj;
