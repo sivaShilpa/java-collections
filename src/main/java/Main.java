@@ -1,5 +1,4 @@
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
@@ -8,7 +7,8 @@ public class Main {
 //        ex2();
 //        ex3();
 //        ex4();
-        ex5();
+//        ex5();
+        ex6();
     }
     static void ex1(){
         var p = new Person("Tom", "Thumb", 11, "123-45-1234");
@@ -60,7 +60,6 @@ public class Main {
         var p5 = new Person("Egar", 55);
         var p6 = new Person("Fred", 66);
 
-// TODO: Create queue of people here...
         Queue<Person> que = new LinkedList<>();
         que.add(p1);
         que.add(p2);
@@ -72,7 +71,7 @@ public class Main {
         while (true) {
             System.out.println(que.peek().fName + " " + que.peek().age+ "\n");
             que.remove();
-            
+
             if(que.isEmpty()){
                 break;
             }
@@ -81,5 +80,37 @@ public class Main {
         }
 
         System.out.println("Finished");
+    }
+
+    static void ex6(){
+        ArrayList<Car> cars = new ArrayList<Car>();
+
+        Car c1 = new Car("Hyundai", "Elantra Hybrid", 28350, "Black", 53);
+        Car c2 = new Car("Toyota", "Venza", 40380, "Grey", 40);
+        Car c3 = new Car("Toyota", "RAV4 Hybrid", 37575, "White", 41);
+        Car c4 = new Car("Ford", "Escape Hybrid", 39185, "Brown", 60);
+        Car c5 = new Car("Lexus", "UX 250h", 40390, "Red", 41);
+
+        cars.add(c1);
+        cars.add(c2);
+        cars.add(c3);
+        cars.add(c4);
+        cars.add(c5);
+
+        Collections.sort(cars, (car1, car2) -> {
+            if (car1.miles == car2.miles)
+                return 0;
+            else if (car1.miles > car2.miles)
+                return 1;
+            else
+                return -1;
+        });
+
+        for (Car car : cars) {
+
+            // Print the sorted ArrayList
+            System.out.println(car.model + " " + car.make + " " + car.price + " " + car.color + " " + car.miles + "\n");
+        }
+
     }
 }
